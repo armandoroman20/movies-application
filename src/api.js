@@ -4,6 +4,7 @@ module.exports = {
         .then(response => response.json());
   },
 
+
     addNewMovie: (movieTitle, movieRating) => {
       const newMovie = {title: movieTitle, rating: movieRating};
       const url = 'api/movies';
@@ -17,5 +18,5 @@ module.exports = {
       fetch(url, options)
           .then(/* post was created successfully */)
           .catch(/* handle errors */)
-    },
-  };
+    }
+};

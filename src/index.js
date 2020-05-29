@@ -23,9 +23,10 @@ getMovies().then((movies) => {
         console.log(`id#${id} - ${title} - rating: ${rating}`);
     });
 }).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.')
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
     console.log(error);
 });
+
 
 
                             //=====loading=====//
@@ -53,8 +54,6 @@ getMovies().then((movies) => {
                 //append to HTML or
                 html += `<div> Title: ${movie.title}</div>`;
                 html += `<div>Rating: ${movie.rating}</div>`;
-
-
             });
             return html;
         };
@@ -63,12 +62,21 @@ getMovies().then((movies) => {
         });
 
 
+
                              //=====ADD MOVIES=====//
 
-        $('#add-movie').click(function(e) {
-            e.preventDefault();
+        $('#add-movie').click(function(event) {
+            event.preventDefault();
             let movieTitle = $('#movie-title').val();
             let movieRating  = $('#movie-rating').val();
-            addNewMovie(movieTitle, movieRating)
+            addNewMovie(movieTitle, movieRating);
+
+            getMovies().then((movie) => {
+                $('#movie-show').empty().append(makeHtml(movie))
+            });
+
 });
+
+                    //=====display new list=====//
+
 
